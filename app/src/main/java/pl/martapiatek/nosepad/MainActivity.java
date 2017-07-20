@@ -1,16 +1,20 @@
 package pl.martapiatek.nosepad;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements Runnable{
 
 
     private Handler handler;
     private Dialog splashDialog;
+    private Button btnAddReview, btnReviews, btnContact, btnAbout, btnConfig;
 
 
     @Override
@@ -23,7 +27,24 @@ public class MainActivity extends AppCompatActivity implements Runnable{
         handler = new Handler();
         AsyncTask.execute(this);
 
+        btnAddReview = (Button) findViewById(R.id.btnAddReview);
 
+        btnAddReview.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AddProductActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+
+        btnReviews = (Button) findViewById(R.id.btnReviews);
+
+        btnReviews.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), SearchMenuActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
 
 
     }

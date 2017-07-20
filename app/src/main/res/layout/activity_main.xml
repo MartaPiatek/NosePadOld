@@ -35,14 +35,12 @@
 
                 <Button
                     android:id="@+id/btnAddReview"
-                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
-                    android:foregroundTint="@android:color/holo_green_dark"
                     android:text="Dodaj recenzję"
-                    android:textColorLink="@android:color/holo_green_dark"
+                    android:textColor="@color/colorFont"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     />
@@ -59,7 +57,7 @@
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
                     android:text="Przeglądaj recenzje"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorFont"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -75,7 +73,7 @@
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
                     android:text="Kontakt"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorFont"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -91,7 +89,7 @@
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
                     android:text="O aplikacji"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorFont"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -107,7 +105,7 @@
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
                     android:text="Ustawienia"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="@color/colorFont"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
