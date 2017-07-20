@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="pl.martapiatek.nosepad.MainActivity"
-    android:background="@color/back">
+    android:background="@color/back"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteX="8dp">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/back"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="464dp"
             android:layout_weight="1"
@@ -52,14 +34,14 @@
                     android:layout_weight="0.29"/>
 
                 <Button
-                    android:id="@+id/btnSearch"
+                    android:id="@+id/btnAddReview"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
                     android:foregroundTint="@android:color/holo_green_dark"
-                    android:text="Wyszukaj"
+                    android:text="Dodaj recenzję"
                     android:textColorLink="@android:color/holo_green_dark"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -71,12 +53,12 @@
                     android:layout_weight="0.24"/>
 
                 <Button
-                    android:id="@+id/btnObserved"
+                    android:id="@+id/btnReviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorBtn"
                     android:fontFamily="sans-serif"
-                    android:text="Lista Obserwowanych"
+                    android:text="Przeglądaj recenzje"
                     android:textColor="@android:color/background_light"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
@@ -134,17 +116,6 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.29"/>
 
-                <Button
-                    android:id="@+id/btnCreateNotification"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorBtn"
-                    android:fontFamily="sans-serif"
-                    android:text="Test Notyfikacji"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
             </LinearLayout>
 
             <Space
@@ -156,4 +127,4 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+

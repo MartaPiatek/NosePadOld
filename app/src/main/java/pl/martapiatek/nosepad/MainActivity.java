@@ -52,9 +52,7 @@ public class MainActivity extends AppCompatActivity implements Runnable{
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
                     dismissSplashScreen();
-
                 }
             }, 5000
                 );
