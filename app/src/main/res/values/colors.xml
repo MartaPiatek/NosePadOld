@@ -3,8 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="back">#536b69</color>
-    <color name="colorFont2">#d18898</color>
-    <color name="colorFont">#ffffff</color>
-    <color name="colorBtn">#253145</color>
+    <color name="back2">#536b69</color>
+    <color name="colorBtnFajny">#a4bfd1</color>
+    <color name="colorBtn">#a4bfd1</color>
+    <color name="colorFont2">#a4bfd1</color>
+    <color name="colorFont">#253145</color>
+    <color name="colorBtn2">#253145</color>
+    <color name="back">#253145</color>
 </resources>
