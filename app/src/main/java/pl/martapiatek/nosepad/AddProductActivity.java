@@ -6,22 +6,26 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static pl.martapiatek.nosepad.R.drawable.star;
+
 import static pl.martapiatek.nosepad.R.drawable.star1;
 import static pl.martapiatek.nosepad.R.drawable.star2;
-import static pl.martapiatek.nosepad.R.drawable.star_black;
+
 
 public class AddProductActivity extends AppCompatActivity {
 
     private ImageButton btnStar1, btnStar2, btnStar3, btnStar4, btnStar5, btnStar6, btnStar7, btnStar8, btnStar9, btnStar10;
     private MultiAutoCompleteTextView txtNotes;
     private AutoCompleteTextView txtBrand;
+    private Button btnSave;
+    private NosePadDbAdapter mDbAdapter;
+    private EditText editTextFragrance, editTextReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,13 @@ public class AddProductActivity extends AppCompatActivity {
         btnStar8 = (ImageButton) findViewById(R.id.star8);
         btnStar9 = (ImageButton) findViewById(R.id.star9);
         btnStar10 = (ImageButton) findViewById(R.id.star10);
+
+        btnSave = (Button) findViewById(R.id.btnSave);
+        editTextFragrance = (EditText) findViewById(R.id.editTextFragrance);
+        editTextReview = (EditText) findViewById(R.id.editTextReview);
+
+
+        mDbAdapter = new NosePadDbAdapter(this);
 
 
         // obsługa multiAutoCompleteTextView
@@ -184,14 +195,29 @@ public class AddProductActivity extends AppCompatActivity {
                     btnStar8.setImageResource(star1);
                     btnStar9.setImageResource(star1);
                     btnStar10.setImageResource(star1);
-
             }
         });
 
 
 
-    }
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDbAdapter.open();
+
+                mDbAdapter.createReview("Chanel", "No 8", "cytruski", "Spoko",3);
+                mDbAdapter.createReview(txtBrand.getText().toString(),
+                        editTextFragrance.getText().toString(),
+                        txtNotes.getText().toString(),
+                        editTextReview.getText().toString(),6);
+            }
+        });
+
+
+    } // onCreate
 
 
 
-}
+
+
+}//class
