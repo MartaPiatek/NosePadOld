@@ -15,7 +15,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
        />
 
     <TextView
@@ -29,19 +29,19 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
-    <TextView
+    <AutoCompleteTextView
         android:id="@+id/txtBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="@color/colorFont2"/>
+        android:textColor="@color/colorFont2"
+        />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
     <TextView
@@ -55,22 +55,24 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
-    <AutoCompleteTextView
-        android:id="@+id/txtFragrance"
+    <EditText
+        android:id="@+id/editTextFragrance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
     <TextView
-        android:id="@+id/txtNutsLabel"
+        android:id="@+id/txtNotesLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Wyczuwalne nuty"
@@ -80,18 +82,18 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/txtNuts"
+        android:id="@+id/txtNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MultiAutoCompleteTextView"/>
+        android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
     <TextView
@@ -103,16 +105,17 @@
         android:textStyle="bold"
         android:textColor="@color/colorFont2"/>
 
-    <TextView
-        android:id="@+id/txtReview"
+    <EditText
+        android:id="@+id/editTextReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         />
 
     <TextView
@@ -131,11 +134,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/star1"
+            style="@android:style/Widget.CompoundButton.Star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -213,7 +217,26 @@
             android:layout_weight="1"
             android:background="@color/back"
             app:srcCompat="@drawable/ic_grade_black_24dp"/>
+
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorBtn"
+        android:text="Zapisz"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        />
 
 </LinearLayout>
 

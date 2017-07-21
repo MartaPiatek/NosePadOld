@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes_list">
+        <item>Bergamotka</item>
+        <item>Cytrusy</item>
+        <item>Cytryna</item>
+        <item>Czerwona pomarańcza</item>
+        <item>Dzrewo cytrynowe</item>
+        <item>Gorzka pomarańcza</item>
+        <item>Grejpfrut</item>
+        <item>Klementynka</item>
+        <item>Kumkwat</item>
+        <item>Limonka</item>
+        <item>Mandarynka</item>
+        <item>Petitgrain</item>
+        <item>Pomarańcza</item>
+        <item>Pomelo</item>
+        <item>Trawa cytrynowa</item>
+        <item>Werbena</item>
+        <item>Neroli</item>
+        <item>Melisa</item>
+    </string-array>
+
+    <string-array name="brand_list">
+        <item>Annick Goutal</item>
+        <item>Balenciaga</item>
+        <item>Burberry</item>
+        <item>Bvlgari</item>
+        <item>Chanel</item>
+        <item>Christian Dior</item>
+        <item>Dolce and Gabbana</item>
+        <item>Guerlain</item>
+        <item>Jessica Simpson</item>
+        <item>Penhaligon`s</item>
+    </string-array>
+
+</resources>
