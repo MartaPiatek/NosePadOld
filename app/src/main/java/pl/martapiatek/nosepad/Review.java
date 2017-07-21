@@ -9,11 +9,11 @@ public class Review {
     private int id;
     private String brand;
     private String fragrance;
-    private String[] notes;
+    private String notes;
     private String reviewDescription;
     private int rating;
 
-    public Review(int id, String brand, String fragrance, String[] notes, String reviewDescription, int rating) {
+    public Review(int id, String brand, String fragrance, String notes, String reviewDescription, int rating) {
         this.id = id;
         this.brand = brand;
         this.fragrance = fragrance;
@@ -34,7 +34,7 @@ public class Review {
         return fragrance;
     }
 
-    public String[] getNotes() {
+    public String getNotes() {
         return notes;
     }
 
@@ -58,7 +58,7 @@ public class Review {
         this.fragrance = fragrance;
     }
 
-    public void setNotes(String[] notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
