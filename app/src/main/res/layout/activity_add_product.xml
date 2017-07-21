@@ -139,12 +139,12 @@
 
         <ImageButton
             android:id="@+id/star1"
-            style="@android:style/Widget.CompoundButton.Star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_star_black_24dp"/>
+            app:srcCompat="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star2"
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            app:srcCompat="@drawable/star2"/>
 
         <ImageButton
             android:id="@+id/star3"
@@ -160,7 +160,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+
+            app:srcCompat="@drawable/star2"/>
 
         <ImageButton
             android:id="@+id/star4"
@@ -168,7 +169,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star5"
@@ -176,7 +178,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star6"
@@ -184,7 +187,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star7"
@@ -192,7 +196,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star8"
@@ -200,7 +205,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star9"
@@ -208,7 +214,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
         <ImageButton
             android:id="@+id/star10"
@@ -216,13 +223,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/back"
-            app:srcCompat="@drawable/ic_grade_black_24dp"/>
+            android:src="@drawable/star2"
+            />
 
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="30dp"
         />
 
     <Button

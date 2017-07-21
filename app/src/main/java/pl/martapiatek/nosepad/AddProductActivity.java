@@ -2,13 +2,20 @@ package pl.martapiatek.nosepad;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static pl.martapiatek.nosepad.R.drawable.star;
+import static pl.martapiatek.nosepad.R.drawable.star1;
+import static pl.martapiatek.nosepad.R.drawable.star2;
+import static pl.martapiatek.nosepad.R.drawable.star_black;
 
 public class AddProductActivity extends AppCompatActivity {
 
@@ -21,6 +28,18 @@ public class AddProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
+        txtNotes = (MultiAutoCompleteTextView) findViewById(R.id.txtNotes);
+        txtBrand = (AutoCompleteTextView) findViewById(R.id.txtBrand);
+        btnStar1 = (ImageButton) findViewById(R.id.star1);
+        btnStar2 = (ImageButton) findViewById(R.id.star2);
+        btnStar3 = (ImageButton) findViewById(R.id.star3);
+        btnStar4 = (ImageButton) findViewById(R.id.star4);
+        btnStar5 = (ImageButton) findViewById(R.id.star5);
+        btnStar6 = (ImageButton) findViewById(R.id.star6);
+        btnStar7 = (ImageButton) findViewById(R.id.star7);
+        btnStar8 = (ImageButton) findViewById(R.id.star8);
+        btnStar9 = (ImageButton) findViewById(R.id.star9);
+        btnStar10 = (ImageButton) findViewById(R.id.star10);
 
 
         // obsługa multiAutoCompleteTextView
@@ -28,8 +47,6 @@ public class AddProductActivity extends AppCompatActivity {
         List<String> notesList = Arrays.asList(notesArr);
 
         ArrayAdapter<String> adapterNotes = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, notesList);
-
-        txtNotes = (MultiAutoCompleteTextView) findViewById(R.id.txtNotes);
 
         txtNotes.setThreshold(1); // liczba znaków do podpowiedzi
         txtNotes.setAdapter(adapterNotes);
@@ -42,15 +59,138 @@ public class AddProductActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapterBrand = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, brandsList);
 
-        txtBrand = (AutoCompleteTextView) findViewById(R.id.txtBrand);
         txtBrand.setThreshold(1); // liczba znaków do podpowiedzi
         txtBrand.setAdapter(adapterBrand);
 
+        btnStar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+
+            }
+        });
+
+
+        btnStar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+
+
+                if(btnStar2.isSelected()){
+                    btnStar1.isSelected();
+                }
+
+            }
+        });
+
+        btnStar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+            }
+        });
+
+        btnStar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+            }
+        });
+
+        btnStar5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+                btnStar5.setImageResource(star1);
+            }
+        });
+
+        btnStar6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+                btnStar5.setImageResource(star1);
+                btnStar6.setImageResource(star1);
+            }
+        });
+
+        btnStar7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+                btnStar5.setImageResource(star1);
+                btnStar6.setImageResource(star1);
+                btnStar7.setImageResource(star1);
+            }
+        });
+
+        btnStar8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+                btnStar5.setImageResource(star1);
+                btnStar6.setImageResource(star1);
+                btnStar7.setImageResource(star1);
+                btnStar8.setImageResource(star1);
+            }
+        });
+
+        btnStar9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnStar1.setImageResource(star1);
+                btnStar2.setImageResource(star1);
+                btnStar3.setImageResource(star1);
+                btnStar4.setImageResource(star1);
+                btnStar5.setImageResource(star1);
+                btnStar6.setImageResource(star1);
+                btnStar7.setImageResource(star1);
+                btnStar8.setImageResource(star1);
+                btnStar9.setImageResource(star1);
+            }
+        });
+
+        btnStar10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                    btnStar1.setImageResource(star1);
+                    btnStar2.setImageResource(star1);
+                    btnStar3.setImageResource(star1);
+                    btnStar4.setImageResource(star1);
+                    btnStar5.setImageResource(star1);
+                    btnStar6.setImageResource(star1);
+                    btnStar7.setImageResource(star1);
+                    btnStar8.setImageResource(star1);
+                    btnStar9.setImageResource(star1);
+                    btnStar10.setImageResource(star1);
+
+            }
+        });
 
 
 
     }
-
 
 
 
