@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchByBrandActivity extends AppCompatActivity implements View.OnClickListener {
@@ -43,6 +44,18 @@ public class SearchByBrandActivity extends AppCompatActivity implements View.OnC
         btnSearchBrand = (Button) findViewById(R.id.btnSearchBrand);
 
         mListView = (ListView) findViewById(R.id.reviewsBrand_list_view);
+
+        // obsługa autocomplete
+        String[] brandsArr = getResources().getStringArray(R.array.brand_list); //pobranie listy
+        List<String> brandsList = Arrays.asList(brandsArr);
+
+        ArrayAdapter<String> adapterBrand = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, brandsList);
+
+        txtBrand.setThreshold(1); // liczba znaków do podpowiedzi
+        txtBrand.setAdapter(adapterBrand);
+
+
+
         mListView.setDivider(null);
         mDbAdapter = new NosePadDbAdapter(this);
         mDbAdapter.open();
