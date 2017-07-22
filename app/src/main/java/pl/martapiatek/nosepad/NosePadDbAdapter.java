@@ -176,6 +176,20 @@ public class NosePadDbAdapter {
 
 
 
+    public Cursor fetchReviewByNotes(String note){
+
+        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
+                        COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_NOTES + "=?",
+                new String[]{String.valueOf(note)}, null, null, null, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+
+        return cursor;
+    }
+
+
+
+
     public Cursor fetchAllReviews(){
         Cursor mCursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
                         COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING},
