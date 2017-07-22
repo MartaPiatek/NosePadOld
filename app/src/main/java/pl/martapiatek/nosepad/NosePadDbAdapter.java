@@ -189,11 +189,16 @@ public class NosePadDbAdapter {
 
     public Cursor fetchReviewByRating(int rating){
 
-        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
+       Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
                         COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_RATING + "=?",
-                new String[]{String.valueOf(rating)}, null, null, null, null);
+              new String[]{String.valueOf(rating)}, null, null, null, null);
         if(cursor != null)
-            cursor.moveToFirst();
+                  cursor.moveToFirst();
+
+
+
+
+
 
         return cursor;
     }
@@ -202,7 +207,7 @@ public class NosePadDbAdapter {
     public Cursor fetchAllReviews(){
         Cursor mCursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
                         COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING},
-                null, null, null, null, null);
+                null, null, null, null, COL_BRAND);
         if(mCursor != null)
             mCursor.moveToFirst();
 

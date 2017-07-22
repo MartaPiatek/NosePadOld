@@ -131,7 +131,8 @@ public class SearchByNotesActivity extends AppCompatActivity implements View.OnC
 
                 // do identyfikatorów widoków w układzie graficznym
                 int[] to = new int[]{
-                        R.id.row_text
+                        R.id.row_text,
+                        R.id.row_fragrance
                 };
 
                 mCursorAdapter = new NosePadSimpleCursorAdapter(
@@ -165,10 +166,5 @@ public class SearchByNotesActivity extends AppCompatActivity implements View.OnC
         return (int)mCursorAdapter.getItemId(nC);
     }
 
-    private void insertSomeReviews() {
-        mDbAdapter.createReview("Chanel", "No 5", "cytruski", "Spoko",3);
-        mDbAdapter.createReview("Penhaligon's", "Vaara", "smrodki mojej Klejnotki", "OK",5);
-        mDbAdapter.createReview("Armani", "Mani", "słodziaki pierdziaki", "Super",10);
 
-    }
 }

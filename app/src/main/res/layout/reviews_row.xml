@@ -22,13 +22,28 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@color/back"
-            android:text="Treść przypomnienia"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:text="Marka"
             android:textColor="@color/colorFont2"
             android:textSize="18sp"
-            android:gravity="center_vertical"
-            android:padding="10dp"
+            />
+
+        <TextView
+            android:id="@+id/row_fragrance"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/back"
             android:ellipsize="end"
+            android:gravity="center_vertical"
             android:maxLines="1"
+            android:padding="10dp"
+            android:text="Zapach"
+            android:textColor="@color/colorFont2"
+            android:textSize="18sp"
             />
     </LinearLayout>
 

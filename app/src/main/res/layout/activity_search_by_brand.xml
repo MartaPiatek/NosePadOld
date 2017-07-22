@@ -43,12 +43,6 @@
         android:layout_weight="0.025"
         />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
-        />
-
     <Button
         android:id="@+id/btnSearchBrand"
         android:layout_width="match_parent"

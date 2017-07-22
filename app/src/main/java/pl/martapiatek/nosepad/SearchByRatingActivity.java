@@ -36,7 +36,7 @@ public class SearchByRatingActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_rating);
 
-        txtRating = (AutoCompleteTextView) findViewById(R.id.txtRating);
+
         btnSearchRating = (Button) findViewById(R.id.btnSearchRating);
 
         mListView = (ListView) findViewById(R.id.reviewsBrand_list_view);
@@ -137,7 +137,8 @@ public class SearchByRatingActivity extends AppCompatActivity implements View.On
 
                 // do identyfikatorów widoków w układzie graficznym
                 int[] to = new int[]{
-                        R.id.row_text
+                        R.id.row_text,
+                         R.id.row_fragrance
                 };
 
                 mCursorAdapter = new NosePadSimpleCursorAdapter(

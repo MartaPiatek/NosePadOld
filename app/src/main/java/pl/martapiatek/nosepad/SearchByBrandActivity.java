@@ -145,7 +145,8 @@ public class SearchByBrandActivity extends AppCompatActivity implements View.OnC
 
                 // do identyfikatorów widoków w układzie graficznym
                 int[] to = new int[]{
-                        R.id.row_text
+                        R.id.row_text,
+                        R.id.row_fragrance
                 };
 
                 mCursorAdapter = new NosePadSimpleCursorAdapter(
