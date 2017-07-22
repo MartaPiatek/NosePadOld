@@ -15,91 +15,87 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-       />
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
+        />
 
     <TextView
         android:id="@+id/txtBrandLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         android:text="Marka"
-        android:textStyle="bold"
         android:textColor="@color/colorFont2"
-        android:textSize="24sp"/>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        />
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
     <AutoCompleteTextView
         android:id="@+id/txtBrand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:textColor="@color/colorFont2"
         />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
         />
 
     <TextView
         android:id="@+id/txtFragranceLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         android:textSize="24sp"
         android:text="Zapach"
         android:textStyle="bold"
         android:textColor="@color/colorFont2"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        />
-
     <EditText
         android:id="@+id/editTextFragrance"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
         />
 
     <TextView
         android:id="@+id/txtNotesLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         android:text="Wyczuwalne nuty"
         android:textColor="@color/colorFont2"
         android:textSize="24sp"
         android:textStyle="bold"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        />
-
     <MultiAutoCompleteTextView
         android:id="@+id/txtNotes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
         />
 
     <TextView
         android:id="@+id/txtReviewLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         android:textSize="24sp"
         android:text="Recenzja"
         android:textStyle="bold"
@@ -108,20 +104,23 @@
     <EditText
         android:id="@+id/editTextReview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:textColor="@color/colorFont2"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
         />
 
     <TextView
         android:id="@+id/txtNoteLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         android:textSize="24sp"
         android:text="Ocena"
         android:textColor="@color/colorFont2"
@@ -129,7 +128,8 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.025"
         />
 
     <LinearLayout
@@ -230,21 +230,17 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
         />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:background="@color/colorBtn"
         android:text="Zapisz"/>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        />
 
 </LinearLayout>
 
