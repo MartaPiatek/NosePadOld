@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Marta on 21.07.2017.
  */
@@ -110,7 +113,7 @@ public class NosePadDbAdapter {
         mDb.insert(TABLE_NAME, null, values);
     }
 
-    //przeciążanie pobierające obiekt przypomnienia
+    //przeciążanie pobierające obiekt review
     public long createReview(Review review){
         ContentValues values = new ContentValues();
         values.put(COL_BRAND, review.getBrand());
@@ -123,11 +126,12 @@ public class NosePadDbAdapter {
 
 
     // ODCZYT
-    public Review fetchReviewById(int id){
+    public Review fetchReviewById(int id) {
+
         Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
                         COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
-        if(cursor != null)
+        if (cursor != null)
             cursor.moveToFirst();
 
         return new Review(
@@ -140,6 +144,38 @@ public class NosePadDbAdapter {
         );
     }
 
+
+    public Cursor fetchReviewByBrand(String brand){
+
+        List<Review> list;
+        list = new ArrayList<>();
+
+
+        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
+                        COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_BRAND + "=?",
+                new String[]{String.valueOf(brand)}, null, null, null, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+
+     /*   while (cursor.moveToNext()) {
+            Review r = new Review(
+                    cursor.getInt(INDEX_ID),
+                    cursor.getString(INDEX_BRAND),
+                    cursor.getString(INDEX_FRAGRANCE),
+                    cursor.getString(INDEX_NOTES),
+                    cursor.getString(INDEX_REVIEW),
+                    cursor.getInt(INDEX_RATING)
+            );
+
+            list.add(r);
+        }
+        cursor.close();
+        return list;*/
+        return cursor;
+    }
+
+
+
     public Cursor fetchAllReviews(){
         Cursor mCursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
                         COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING},
@@ -151,7 +187,7 @@ public class NosePadDbAdapter {
     }
 
     // AKTUALIZACJA
-    public void updateReminder(Review review){
+    public void updateReview(Review review){
         ContentValues values = new ContentValues();
         values.put(COL_BRAND, review.getBrand());
         values.put(COL_FRAGRANCE, review.getFragrance());
@@ -163,7 +199,7 @@ public class NosePadDbAdapter {
     }
 
     // USUNIĘCIE
-    public void deleteReminderById(int nId){
+    public void deleteReviewById(int nId){
         mDb.delete(TABLE_NAME, COL_ID + "=?", new String[]{String.valueOf(nId)});
     }
 
