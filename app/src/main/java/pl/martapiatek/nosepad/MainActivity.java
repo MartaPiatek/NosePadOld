@@ -46,7 +46,14 @@ public class MainActivity extends AppCompatActivity implements Runnable{
             }
         });
 
+        btnConfig = (Button) findViewById(R.id.btnConfig);
 
+        btnConfig.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), ConfigActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 
     @Override
