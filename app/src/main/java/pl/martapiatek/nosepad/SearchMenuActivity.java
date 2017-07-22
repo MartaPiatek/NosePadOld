@@ -8,8 +8,8 @@ import android.widget.Button;
 
 public class SearchMenuActivity extends AppCompatActivity {
 
-    private Button btnSearchByName;
-    private Button btnSearchByNotes;
+    private Button btnSearchByName, btnSearchAll, btnSearchByNotes, btnSearchByRating ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class SearchMenuActivity extends AppCompatActivity {
 
         btnSearchByName.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent Intent = new Intent(view.getContext(), SearchActivity.class);
-                startActivity(Intent);
+                Intent intent = new Intent(view.getContext(), SearchByBrandActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -32,11 +32,29 @@ public class SearchMenuActivity extends AppCompatActivity {
 
         btnSearchByNotes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent Intent = new Intent(view.getContext(), SearchByBrandActivity.class);
-                startActivity(Intent);
+                Intent intent = new Intent(view.getContext(), SearchByNotesActivity.class);
+                startActivity(intent);
             }
         });
 
+
+        btnSearchByRating = (Button) findViewById(R.id.btnSearchByRating);
+
+        btnSearchByRating.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), SearchByRatingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSearchAll = (Button) findViewById(R.id.btnSearchAll);
+
+        btnSearchAll.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

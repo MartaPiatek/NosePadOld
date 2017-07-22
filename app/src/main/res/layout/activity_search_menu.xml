@@ -9,7 +9,8 @@
     android:background="@color/back"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="8dp">
+    tools:layout_editor_absoluteX="8dp"
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.29"/>
+                android:layout_weight="0.2"/>
 
             <Button
                 android:id="@+id/btnSearchByName"
@@ -39,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorBtn"
                 android:fontFamily="sans-serif"
-                android:text="Wyszukaj po nazwie"
+                android:text="Wyszukaj po marce"
                 android:textColor="@color/colorFont"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -48,7 +49,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.24"/>
+                android:layout_weight="0.2"/>
 
             <Button
                 android:id="@+id/btnSearchByNotes"
@@ -64,7 +65,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.27"/>
+                android:layout_weight="0.2"/>
 
             <Button
                 android:id="@+id/btnSearchByRating"
@@ -80,7 +81,23 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.29"/>
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/btnSearchAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBtn"
+                android:fontFamily="sans-serif"
+                android:text="Wyświetl wszystkie recenzje"
+                android:textColor="@color/colorFont"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"/>
 
         </LinearLayout>
 

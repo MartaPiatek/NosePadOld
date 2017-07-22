@@ -99,6 +99,7 @@ public class SearchActivity extends AppCompatActivity {
                           Review review =  mDbAdapter.fetchReviewById(getIdFromPosition(masterListPosition));
 
                             Intent myIntent = new Intent(view.getContext(), EditReviewActivity.class);
+                            myIntent.putExtra("ID", review.getId());
                             myIntent.putExtra("BRAND", review.getBrand().toString());
                             myIntent.putExtra("FRAGRANCE", review.getFragrance().toString());
                             myIntent.putExtra("NOTES", review.getNotes().toString());
@@ -108,7 +109,7 @@ public class SearchActivity extends AppCompatActivity {
 
                             // usunięcie przypomnienia
                         } else {
-                            mDbAdapter.deleteReminderById(getIdFromPosition(masterListPosition));
+                            mDbAdapter.deleteReviewById(getIdFromPosition(masterListPosition));
                             mCursorAdapter.changeCursor(mDbAdapter.fetchAllReviews());
                         }
                         dialog.dismiss();

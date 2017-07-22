@@ -173,7 +173,6 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-
     private void rating(int n){
     int j=0;
         for(int i=0;i<n;i++){

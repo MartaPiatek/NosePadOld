@@ -28,9 +28,9 @@
         </activity>
         <activity android:name=".SearchByBrandActivity">
         </activity>
-        <activity android:name=".SearchByNotes">
+        <activity android:name=".SearchByNotesActivity">
         </activity>
-        <activity android:name=".SearchByRating">
+        <activity android:name=".SearchByRatingActivity">
         </activity>
         <activity android:name=".ConfigActivity">
         </activity>
