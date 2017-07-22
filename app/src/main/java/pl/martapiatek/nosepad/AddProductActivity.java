@@ -34,7 +34,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     private NosePadDbAdapter mDbAdapter;
     private EditText editTextFragrance, editTextReview;
 
-    private int starNo;
+    private int ratingStar=0;
 
      ArrayList<ImageButton> myButtons = new ArrayList<>();
 
@@ -57,10 +57,9 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         btnStar10 = (ImageButton) findViewById(R.id.star10);
 
         btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(this);
         editTextFragrance = (EditText) findViewById(R.id.editTextFragrance);
         editTextReview = (EditText) findViewById(R.id.editTextReview);
-
-
 
         myButtons.add(btnStar1);
         myButtons.add(btnStar2);
@@ -73,98 +72,12 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         myButtons.add(btnStar9);
         myButtons.add(btnStar10);
 
-
         for(ImageButton button :myButtons){
             button.setOnClickListener(this);
             button.setTag(Integer.valueOf(star2));
         }
 
-
-
-    /*   int i=0;
-       for (final ImageButton but : myButtons) {
-            but.setOnTouchListener(new View.OnTouchListener() {
-
-                @Override
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                    but.setTag(Integer.valueOf(star2));
-                    int drawable = (Integer) but.getTag();
-                    switch (drawable) {
-
-                        case star1:
-                            but.setImageResource(star2);
-                            break;
-
-                        case star2:
-                            but.setImageResource(star1);
-                            break;
-
-                    }
-
-                    return false;
-                }
-*/
-           /*     @Override
-                public void onClick(View view) {
-                    //   but.setImageResource(star1);
-
-                    but.setTag(Integer.valueOf(star2));
-                    int drawable = (Integer) but.getTag();
-                    switch (drawable) {
-
-                        case star1:
-                            but.setImageResource(star2);
-                            break;
-
-                        case star2:
-                            but.setImageResource(star1);
-                            break;
-
-                    }
-                }*/
-
-
-
-
-
-
-
-
-      /*  for (int i = 0; i < myButtons.size(); i++) {
-
-            myButtons.get(i).setTag(Integer.valueOf(star1));
-           // int drawable = (Integer) myButtons.get(i).getTag();
-
-
-            final int finalI = i;
-            myButtons.get(i).setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-
-                    switch ((Integer) myButtons.get(finalI).getTag()) {
-
-                        case star1:
-                            myButtons.get(finalI).setEnabled(true);
-                            break;
-
-                        case star2:
-                            myButtons.get(finalI).setEnabled(false);
-                            break;
-
-
-                    }
-
-                }
-            });
-
-
-
-
-        }*/
-
-
         mDbAdapter = new NosePadDbAdapter(this);
-
 
         // obsługa multiAutoCompleteTextView
         String[] notesArr = getResources().getStringArray(R.array.notes_list);
@@ -176,7 +89,6 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         txtNotes.setAdapter(adapterNotes);
         txtNotes.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer()); // ustawienie separatora
 
-
         // obsługa AutoCompleteTextView
         String[] brandsArr = getResources().getStringArray(R.array.brand_list); //pobranie listy
         List<String> brandsList = Arrays.asList(brandsArr);
@@ -185,30 +97,6 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
         txtBrand.setThreshold(1); // liczba znaków do podpowiedzi
         txtBrand.setAdapter(adapterBrand);
-
-
-
-
-
-
-  /*     btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mDbAdapter.open();
-
-                //  mDbAdapter.createReview("Chanel", "No 8", "cytruski", "Spoko",3);
-                mDbAdapter.createReview(txtBrand.getText().toString(),
-                        editTextFragrance.getText().toString(),
-                        txtNotes.getText().toString(),
-                        editTextReview.getText().toString(), 6);
-
-
-                Toast.makeText(getApplicationContext(), "Zapis", Toast.LENGTH_LONG).show();
-            }
-
-
-        });
-    */
 
     } // onCreate
 
@@ -221,42 +109,52 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
             case R.id.star1:
                 rating(1);
+                ratingStar=1;
                 break;
 
             case R.id.star2:
                 rating(2);
+                ratingStar=2;
                 break;
 
             case R.id.star3:
                 rating(3);
+                ratingStar=3;
                 break;
 
             case R.id.star4:
                 rating(4);
+                ratingStar=4;
                 break;
 
             case R.id.star5:
                 rating(5);
+                ratingStar=5;
                 break;
 
             case R.id.star6:
                 rating(6);
+                ratingStar=6;
                 break;
 
             case R.id.star7:
                 rating(7);
+                ratingStar=7;
                 break;
 
             case R.id.star8:
                 rating(8);
+                ratingStar=8;
                 break;
 
             case R.id.star9:
                 rating(9);
+                ratingStar=9;
                 break;
 
             case R.id.star10:
                 rating(10);
+                ratingStar=10;
                 break;
 
             case R.id.btnSave:
@@ -265,19 +163,18 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
                 mDbAdapter.createReview(txtBrand.getText().toString(),
                         editTextFragrance.getText().toString(),
                         txtNotes.getText().toString(),
-                        editTextReview.getText().toString(), 6);
+                        editTextReview.getText().toString(),
+                        ratingStar);
                 Toast.makeText(getApplicationContext(), "Zapis", Toast.LENGTH_LONG).show();
+                mDbAdapter.close();
 
                 break;
 
-
-            default:
-                break;
         }
     }
 
 
-    private int rating(int n){
+    private void rating(int n){
     int j=0;
         for(int i=0;i<n;i++){
 
@@ -302,16 +199,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
             }
 
         }
-        return j;
-    }
-
-
-    private void unrating(){
 
     }
-
-
-
 
 
 

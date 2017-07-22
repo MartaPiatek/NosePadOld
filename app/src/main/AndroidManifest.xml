@@ -26,7 +26,11 @@
         </activity>
         <activity android:name=".EditReviewActivity">
         </activity>
-        <activity android:name=".SearchByBrand">
+        <activity android:name=".SearchByBrandActivity">
+        </activity>
+        <activity android:name=".SearchByNotes">
+        </activity>
+        <activity android:name=".SearchByRating">
         </activity>
     </application>
 

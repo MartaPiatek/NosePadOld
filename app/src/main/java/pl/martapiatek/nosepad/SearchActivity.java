@@ -1,5 +1,6 @@
 package pl.martapiatek.nosepad;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,9 @@ public class SearchActivity extends AppCompatActivity {
         mDbAdapter.open();
         if (savedInstanceState == null) {
             // wyczyść wszystkie dane
-           // mDbAdapter.deleteAllReminders();
+
+          //  mDbAdapter.deleteAllReminders();
+
             // dodaj przykładowe dane
             insertSomeReviews();
         }
@@ -76,7 +79,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(SearchActivity.this);
                 ListView modeListView = new ListView(SearchActivity.this);
-                String[] modes = new String[]{"Edycja recenzji", "Usunięcie recenzji"};
+                String[] modes = new String[]{"Zobacz recenzję", "Usuń recenzję"};
 
                 ArrayAdapter<String> modeAdapter = new ArrayAdapter<>(SearchActivity.this,
                         android.R.layout.simple_list_item_1, android.R.id.text1, modes);
@@ -91,15 +94,23 @@ public class SearchActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         // edycja przypomnienia
-                    /*    if (position == 0) {
-                            int nId = getIdFromPosition(masterListPosition);
-                            Review review = mDbAdapter.fetchReviewById(nId);
-                            fireCustomDialog(review);
+                        if (position == 0) {
+
+                          Review review =  mDbAdapter.fetchReviewById(getIdFromPosition(masterListPosition));
+
+                            Intent myIntent = new Intent(view.getContext(), EditReviewActivity.class);
+                            myIntent.putExtra("BRAND", review.getBrand().toString());
+                            myIntent.putExtra("FRAGRANCE", review.getFragrance().toString());
+                            myIntent.putExtra("NOTES", review.getNotes().toString());
+                            myIntent.putExtra("REVIEW", review.getReviewDescription().toString());
+                            myIntent.putExtra("RATING", review.getRating());
+                            startActivity(myIntent);
+
                             // usunięcie przypomnienia
                         } else {
                             mDbAdapter.deleteReminderById(getIdFromPosition(masterListPosition));
-                            mCursorAdapter.changeCursor(mDbAdapter.fetchAllReminders());
-                        }*/
+                            mCursorAdapter.changeCursor(mDbAdapter.fetchAllReviews());
+                        }
                         dialog.dismiss();
                     }
                 });

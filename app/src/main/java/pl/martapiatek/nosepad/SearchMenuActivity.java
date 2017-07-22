@@ -9,6 +9,7 @@ import android.widget.Button;
 public class SearchMenuActivity extends AppCompatActivity {
 
     private Button btnSearchByName;
+    private Button btnSearchByNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,18 @@ public class SearchMenuActivity extends AppCompatActivity {
 
         btnSearchByName.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SearchActivity.class);
-                startActivityForResult(myIntent, 0);
+                Intent Intent = new Intent(view.getContext(), SearchActivity.class);
+                startActivity(Intent);
+            }
+        });
+
+
+        btnSearchByNotes = (Button) findViewById(R.id.btnSearchByNotes);
+
+        btnSearchByNotes.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent Intent = new Intent(view.getContext(), SearchByBrandActivity.class);
+                startActivity(Intent);
             }
         });
 
