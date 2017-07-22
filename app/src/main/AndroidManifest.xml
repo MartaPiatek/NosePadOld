@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".SearchByRating">
         </activity>
+        <activity android:name=".ConfigActivity">
+        </activity>
     </application>
 
 </manifest>

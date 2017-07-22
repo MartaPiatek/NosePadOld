@@ -234,13 +234,35 @@
         android:layout_weight="0.05"
         />
 
-    <Button
-        android:id="@+id/btnEdit"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:background="@color/colorBtn"
-        android:text="Edytuj"/>
+        android:orientation="horizontal"
+        android:layout_weight="0.1">
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.04"
+            android:background="@color/colorBtn"
+            android:text="Edytuj"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.07"
+            />
+
+        <Button
+            android:id="@+id/btnReSave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.04"
+            android:background="@color/colorBtn"
+            android:text="Zapisz"/>
+
+    </LinearLayout>
 
 </LinearLayout>
 

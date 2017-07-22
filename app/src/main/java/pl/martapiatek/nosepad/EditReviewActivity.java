@@ -24,9 +24,11 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
         private ImageButton btnStar1, btnStar2, btnStar3, btnStar4, btnStar5, btnStar6, btnStar7, btnStar8, btnStar9, btnStar10;
         private MultiAutoCompleteTextView txtNotes;
         private AutoCompleteTextView txtBrand;
-        private Button btnEdit;
+        private Button btnEdit, btnReSave;
         private NosePadDbAdapter mDbAdapter;
         private EditText editTextFragrance, editTextReview;
+
+        private String sId, sBrand, sFragrance, sNotes, sReview, sRating;
 
     private int ratingStar=0;
 
@@ -41,6 +43,7 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
             txtBrand = (AutoCompleteTextView) findViewById(R.id.txtBrand);
 
             btnEdit = (Button) findViewById(R.id.btnEdit);
+            btnReSave = (Button) findViewById(R.id.btnReSave);
             editTextFragrance = (EditText) findViewById(R.id.editTextFragrance);
             editTextReview = (EditText) findViewById(R.id.editTextReview);
 
@@ -59,8 +62,9 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
             btnStar9 = (ImageButton) findViewById(R.id.star9);
             btnStar10 = (ImageButton) findViewById(R.id.star10);
 
-            btnEdit = (Button) findViewById(R.id.btnEdit);
+
             btnEdit.setOnClickListener(this);
+            btnReSave.setOnClickListener(this);
             editTextFragrance = (EditText) findViewById(R.id.editTextFragrance);
             editTextReview = (EditText) findViewById(R.id.editTextReview);
 
@@ -114,15 +118,15 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
                 }
             });
 
-            //TODO dodać przycisk zapisu zmian +aktualizcja bazy danych
 
             Bundle bundle = getIntent().getExtras();
 
-            String sBrand = bundle.get("BRAND").toString();
-            String sFragrance = bundle.get("FRAGRANCE").toString();
-            String sNotes = bundle.get("NOTES").toString();
-            String sReview = bundle.get("REVIEW").toString();
-            String sRating = bundle.get("RATING").toString();
+            sId = bundle.get("ID").toString();
+            sBrand = bundle.get("BRAND").toString();
+            sFragrance = bundle.get("FRAGRANCE").toString();
+            sNotes = bundle.get("NOTES").toString();
+            sReview = bundle.get("REVIEW").toString();
+            sRating = bundle.get("RATING").toString();
 
 
             txtBrand.setText(sBrand);
@@ -195,17 +199,16 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
                 ratingStar=10;
                 break;
 
-            case R.id.btnSave:
-                mDbAdapter.open();
-                //  mDbAdapter.createReview("Chanel", "No 8", "cytruski", "Spoko",3);
-                mDbAdapter.createReview(txtBrand.getText().toString(),
+            case R.id.btnReSave:
+
+           /*     Review review = new Review(Integer.valueOf(sId),txtBrand.getText().toString(),
                         editTextFragrance.getText().toString(),
                         txtNotes.getText().toString(),
                         editTextReview.getText().toString(),
-                        ratingStar);
-                Toast.makeText(getApplicationContext(), "Zapis", Toast.LENGTH_LONG).show();
-                mDbAdapter.close();
+                       Integer.valueOf(sRating));
 
+                mDbAdapter.updateReview(review);
+           */
                 break;
 
         }
