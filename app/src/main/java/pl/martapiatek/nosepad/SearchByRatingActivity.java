@@ -13,6 +13,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,45 +27,29 @@ public class SearchByRatingActivity extends AppCompatActivity implements View.On
     private NosePadDbAdapter mDbAdapter;
     private NosePadSimpleCursorAdapter mCursorAdapter;
     private Button btnSearchRating;
-
-    private AutoCompleteTextView txtRating;
-    String stext="";
+    private RadioGroup  radioGroup;
+    private RadioButton radioButton;
+    String radioCategory, rating1, rating2;
     Cursor cursor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_rating);
 
-
         btnSearchRating = (Button) findViewById(R.id.btnSearchRating);
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
 
         mListView = (ListView) findViewById(R.id.reviewsBrand_list_view);
 
-        // obsługa autocomplete
-        String[] brandsArr = getResources().getStringArray(R.array.ratings_list); //pobranie listy
-        List<String> brandsList = Arrays.asList(brandsArr);
-
-        ArrayAdapter<String> adapterBrand = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, brandsList);
-
-        txtRating.setThreshold(1); // liczba znaków do podpowiedzi
-        txtRating.setAdapter(adapterBrand);
-
-
-
+        // sprawdź które radio z  grupy wybrane
         mListView.setDivider(null);
         mDbAdapter = new NosePadDbAdapter(this);
         mDbAdapter.open();
 
-        // cursor = mDbAdapter.fetchAllReviews();
-
-
-
         btnSearchRating.setOnClickListener(this);
 
-
-      /*  mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int masterListPosition, long id) {
@@ -84,7 +70,7 @@ public class SearchByRatingActivity extends AppCompatActivity implements View.On
                 modeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        // edycja przypomnienia
+                        // edycja
                         if (position == 0) {
 
                             Review review =  mDbAdapter.fetchReviewById(getIdFromPosition(masterListPosition));
@@ -98,84 +84,106 @@ public class SearchByRatingActivity extends AppCompatActivity implements View.On
                             myIntent.putExtra("RATING", review.getRating());
                             startActivity(myIntent);
 
-                            // usunięcie przypomnienia
+                            // usunięcie
                         } else {
                             mDbAdapter.deleteReviewById(getIdFromPosition(masterListPosition));
-                            stext = txtRating.getText().toString();
-                      //      mCursorAdapter.changeCursor(mDbAdapter.fetchReviewByRating(stext));
+
+                            String[] ratings = chechRadioButton();
+                            mCursorAdapter.changeCursor(mDbAdapter.fetchReviewByRating(ratings[0],ratings[1]));
                         }
                         dialog.dismiss();
                     }
                 });
-
             }
-        });*/
-
-
-
-
+        });
 
     }
-
 
     @Override
     public void onClick(View view) {
 
-     /*   switch (view.getId()) {
+        String[] ratings = chechRadioButton();
 
-            case R.id.btnSearchBrand:
+        switch (view.getId()) {
 
-                stext = txtBrand.getText().toString();
-                cursor = mDbAdapter.fetchReviewByBrand(stext);
+           case R.id.btnSearchRating:
 
-                // z kolumn zdefiniowanych w bazie danych
-                String[] from = new String[]{
-                        NosePadDbAdapter.COL_BRAND, NosePadDbAdapter.COL_FRAGRANCE, NosePadDbAdapter.COL_NOTES,
-                        NosePadDbAdapter.COL_REVIEW, NosePadDbAdapter.COL_RATING
+               cursor = mDbAdapter.fetchReviewByRating(ratings[0],ratings[1]);
 
-                };
+               // z kolumn zdefiniowanych w bazie danych
+               String[] from = new String[]{
+                       NosePadDbAdapter.COL_BRAND, NosePadDbAdapter.COL_FRAGRANCE, NosePadDbAdapter.COL_NOTES,
+                       NosePadDbAdapter.COL_REVIEW, NosePadDbAdapter.COL_RATING
 
-                // do identyfikatorów widoków w układzie graficznym
-                int[] to = new int[]{
-                        R.id.row_text,
-                         R.id.row_fragrance
-                };
+               };
 
-                mCursorAdapter = new NosePadSimpleCursorAdapter(
-                        // kontekst
-                        SearchByBrandActivity.this,
-                        // układ graficzny wiersza
-                        R.layout.reviews_row,
-                        // kursor
-                        cursor,
-                        // z kolumn zdefiniowanych w bazie danych
-                        from,
-                        // do identyfikatorów widoków w układzie graficznym
-                        to,
-                        // znacznik - nieużywany
-                        0);
+               // do identyfikatorów widoków w układzie graficznym
+               int[] to = new int[]{
+                       R.id.row_text,
+                       R.id.row_fragrance
 
-                // cursorAdapter (kontroler) aktualizuje listView (widok)
-                // danymi z bazy danych (model)
+               };
 
+               mCursorAdapter = new NosePadSimpleCursorAdapter(
+                       // kontekst
+                       SearchByRatingActivity.this,
+                       // układ graficzny wiersza
+                       R.layout.reviews_row,
+                       // kursor
+                       cursor,
+                       // z kolumn zdefiniowanych w bazie danych
+                       from,
+                       // do identyfikatorów widoków w układzie graficznym
+                       to,
+                       // znacznik - nieużywany
+                       0);
 
-                mListView.setAdapter(mCursorAdapter);
-                Toast.makeText(getApplicationContext(), "Wyszukiwanie", Toast.LENGTH_SHORT).show();
+               mListView.setAdapter(mCursorAdapter);
+
+               Toast.makeText(getApplicationContext(), "Wyszukiwanie", Toast.LENGTH_SHORT).show();
+               break;
+       }
+
+    }
+
+    private String[] chechRadioButton() {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+        radioButton = (RadioButton) findViewById(selectedId);
+
+        radioCategory = (String) radioButton.getText();
+
+        switch (radioCategory) {
+
+            case "0-2":
+                rating1 = "0";
+                rating2 = "2";
                 break;
 
+            case "3-5":
+                rating1 = "3";
+                rating2 = "5";
+                break;
 
-        }*/
+            case "6-8":
+                rating1 = "6";
+                rating2 = "8";
+                break;
+
+            case "9-10":
+                rating1 = "9";
+                rating2 = "10";
+                break;
+        }
+        String[] ratings= {rating1, rating2};
+
+        return ratings;
     }
 
 
-    private int getIdFromPosition(int nC) {
+    private int getIdFromPosition(int nC)
+    {
         return (int)mCursorAdapter.getItemId(nC);
     }
 
-    private void insertSomeReviews() {
-        mDbAdapter.createReview("Chanel", "No 5", "cytruski", "Spoko",3);
-        mDbAdapter.createReview("Penhaligon's", "Vaara", "smrodki mojej Klejnotki", "OK",5);
-        mDbAdapter.createReview("Armani", "Mani", "słodziaki pierdziaki", "Super",10);
-
-    }
 }
