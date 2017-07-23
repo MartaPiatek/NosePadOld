@@ -34,12 +34,20 @@ public class NosePadSimpleCursorAdapter extends SimpleCursorAdapter{
             holder.listTab = view.findViewById(R.id.row_tab);
             view.setTag(holder);
         }
-        if (cursor.getInt(holder.colRating) <5) {
+        if (cursor.getInt(holder.colRating) <=2 & cursor.getInt(holder.colRating) >=0) {
             holder.listTab.setBackgroundColor(
-                    context.getResources().getColor(R.color.colorAccent));
-        } else {
+                    context.getResources().getColor(R.color.rating1));
+        } else  if (cursor.getInt(holder.colRating) <=5 & cursor.getInt(holder.colRating) >=3){
             holder.listTab.setBackgroundColor(
-                    context.getResources().getColor(R.color.back2));
+                    context.getResources().getColor(R.color.rating2));
+        }
+        else  if (cursor.getInt(holder.colRating) <=8 & cursor.getInt(holder.colRating) >=6){
+            holder.listTab.setBackgroundColor(
+                    context.getResources().getColor(R.color.rating3));
+        }
+        else  if (cursor.getInt(holder.colRating) <=10 & cursor.getInt(holder.colRating) >=9){
+            holder.listTab.setBackgroundColor(
+                    context.getResources().getColor(R.color.rating4));
         }
     }
     static class ViewHolder{
