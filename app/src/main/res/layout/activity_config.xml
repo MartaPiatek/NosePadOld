@@ -43,6 +43,38 @@
         android:background="@color/colorBtn"
         android:text="Usuń"/>
 
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        />
+
+    <TextView
+        android:id="@+id/txtAddLabel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:text="Dodaj przykładowe dane do bazy"
+        android:textColor="@color/colorFont2"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/colorBtn"
+        android:text="Dodaj"/>
+
+
 </LinearLayout>
 
 
