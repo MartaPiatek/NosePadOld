@@ -82,6 +82,7 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
             for(ImageButton button :myButtons){
                 button.setOnClickListener(this);
                 button.setTag(Integer.valueOf(star2));
+                button.setEnabled(false);
             }
 
 
@@ -115,6 +116,12 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
                     txtNotes.setEnabled(true);
                     editTextReview.setEnabled(true);
 
+                    for(ImageButton button :myButtons){
+                        button.setEnabled(false);
+                    }
+
+
+
                 }
             });
 
@@ -140,6 +147,10 @@ public class EditReviewActivity extends AppCompatActivity implements View.OnClic
             editTextReview.setEnabled(false);
 
             rating(Integer.valueOf(sRating));
+
+
+
+
 
         } // onCreate
 
