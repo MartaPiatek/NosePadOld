@@ -95,7 +95,14 @@ public class SearchByNotesActivity extends AppCompatActivity implements View.OnC
                             // usunięcie przypomnienia
                         } else {
                             mDbAdapter.deleteReviewById(getIdFromPosition(masterListPosition));
-                            stext = txtNotes.getText().toString();
+                            stext = txtNotes.getText().toString().toLowerCase();
+
+                           if( stext.endsWith(",")){
+
+                               stext.substring(0,(stext.length()-1));
+                           }
+
+
                             mCursorAdapter.changeCursor(mDbAdapter.fetchReviewByNotes(stext));
                         }
                         dialog.dismiss();
@@ -115,11 +122,25 @@ public class SearchByNotesActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
 
+        String sNew;
+
         switch (view.getId()) {
 
             case R.id.btnSearchNotes:
 
                 stext = txtNotes.getText().toString();
+
+                stext = txtNotes.getText().toString().toLowerCase();
+
+                int len = stext.length();
+                int end = stext.indexOf(",");
+
+                if( end>0){
+              stext = stext.substring(0,end);
+                }
+
+
+
                 cursor = mDbAdapter.fetchReviewByNotes(stext);
 
                 // z kolumn zdefiniowanych w bazie danych
