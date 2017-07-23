@@ -31,14 +31,6 @@ public class SearchActivity extends AppCompatActivity {
         mListView.setDivider(null);
         mDbAdapter = new NosePadDbAdapter(this);
         mDbAdapter.open();
-        if (savedInstanceState == null) {
-            // wyczyść wszystkie dane
-
-          //  mDbAdapter.deleteAllReminders();
-
-            // dodaj przykładowe dane
-            insertSomeReviews();
-        }
 
         Cursor cursor = mDbAdapter.fetchAllReviews();
 
@@ -69,8 +61,6 @@ public class SearchActivity extends AppCompatActivity {
                 // znacznik - nieużywany
                 0);
 
-        // cursorAdapter (kontroler) aktualizuje listView (widok)
-        // danymi z bazy danych (model)
         mListView.setAdapter(mCursorAdapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -120,28 +110,10 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private int getIdFromPosition(int nC) {
         return (int)mCursorAdapter.getItemId(nC);
     }
-
-    private void insertSomeReviews() {
-        mDbAdapter.createReview("Chanel", "No 5", "cytruski", "Spoko",3);
-        mDbAdapter.createReview("Armani", "Pierdani", "Limonka", "OK",10);
-        mDbAdapter.createReview("Armani", "Siedzani", "Cytryna", "Spoko",1);
-        mDbAdapter.createReview("Chanel", "No 5", "cytruski", "Spoko",8);
-        mDbAdapter.createReview("Penhaligon's", "Vaara", "smrodki mojej Klejnotki", "OK",5);
-        mDbAdapter.createReview("Armani", "Mani", "słodziaki pierdziaki", "Super",10);
-
-    }
-
-
-
-
-
-
 
 }
