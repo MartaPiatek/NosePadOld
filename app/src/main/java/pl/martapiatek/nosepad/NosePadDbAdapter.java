@@ -147,58 +147,37 @@ public class NosePadDbAdapter {
 
     public Cursor fetchReviewByBrand(String brand){
 
-        List<Review> list;
-        list = new ArrayList<>();
+        mDb = mDbHelper.getReadableDatabase();
 
+        String table = "tbl_nosepad";
+        String[] columns = null;
+        String selection = "brand LIKE ?";
+        String[] selectionArgs = new String[] { brand +"%" };
+        String groupBy = null;
+        String having = null;
+        String orderBy = "brand, fragrance ASC";
+        String limit = null;
 
-        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
-                        COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_BRAND + "=?",
-                new String[]{String.valueOf(brand)}, null, null, null, null);
-        if(cursor != null)
-            cursor.moveToFirst();
+        Cursor cursor = mDb.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
 
-     /*   while (cursor.moveToNext()) {
-            Review r = new Review(
-                    cursor.getInt(INDEX_ID),
-                    cursor.getString(INDEX_BRAND),
-                    cursor.getString(INDEX_FRAGRANCE),
-                    cursor.getString(INDEX_NOTES),
-                    cursor.getString(INDEX_REVIEW),
-                    cursor.getInt(INDEX_RATING)
-            );
-
-            list.add(r);
-        }
-        cursor.close();
-        return list;*/
         return cursor;
     }
-
 
 
     public Cursor fetchReviewByNotes(String note){
 
-        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
-                        COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_NOTES + "=?",
-                new String[]{String.valueOf(note)}, null, null, null, null);
-        if(cursor != null)
-            cursor.moveToFirst();
+        mDb = mDbHelper.getReadableDatabase();
 
-        return cursor;
-    }
+        String table = "tbl_nosepad";
+        String[] columns = null;
+        String selection = "notes LIKE ?";
+        String[] selectionArgs = new String[] { note +"%" };
+        String groupBy = null;
+        String having = null;
+        String orderBy = "brand, fragrance ASC";
+        String limit = null;
 
-    public Cursor fetchReviewByRating(int rating){
-
-       Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID,
-                        COL_BRAND, COL_FRAGRANCE, COL_NOTES, COL_REVIEW, COL_RATING}, COL_RATING + "=?",
-              new String[]{String.valueOf(rating)}, null, null, null, null);
-        if(cursor != null)
-                  cursor.moveToFirst();
-
-
-
-
-
+        Cursor cursor = mDb.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
 
         return cursor;
     }
@@ -213,6 +192,28 @@ public class NosePadDbAdapter {
 
         return mCursor;
     }
+
+    public Cursor fetchReviewByRating(String from, String to){
+
+        mDb = mDbHelper.getReadableDatabase();
+
+        String table = "tbl_nosepad";
+        String[] columns = null;
+        String selection = "rating >=? AND rating <=?";
+        String[] selectionArgs = {from,to};
+        String groupBy = null;
+        String having = null;
+        String orderBy = "brand, fragrance ASC";
+        String limit = null;
+
+        Cursor cursor = mDb.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
+
+        if(cursor != null)
+            cursor.moveToFirst();
+
+        return cursor;
+    }
+
 
     // AKTUALIZACJA
     public void updateReview(Review review){
