@@ -36,6 +36,10 @@
         </activity>
         <activity android:name=".AboutActivity">
         </activity>
+        <activity android:name=".ContactActivity">
+        </activity>
+        <activity android:name=".MailActivity">
+        </activity>
     </application>
 
 </manifest>

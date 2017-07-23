@@ -180,18 +180,20 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
             int drawable = (Integer) myButtons.get(i).getTag();
             switch (drawable) {
+
                 case star1:
                     for(j=0;j<=i;j++){
-                        myButtons.get(i).setImageResource(star2);
-                        myButtons.get(i).setTag(Integer.valueOf(star2));
+                        myButtons.get(j).setImageResource(star2);
+                        myButtons.get(j).setTag(Integer.valueOf(star2));
                     }
+
 
                     break;
 
                 case star2:
                     for(j=0;j<=i;j++) {
-                        myButtons.get(i).setImageResource(star1);
-                        myButtons.get(i).setTag(Integer.valueOf(star1));
+                        myButtons.get(j).setImageResource(star1);
+                        myButtons.get(j).setTag(Integer.valueOf(star1));
                     }
                     break;
 

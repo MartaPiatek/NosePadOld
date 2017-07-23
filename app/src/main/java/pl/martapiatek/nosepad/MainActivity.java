@@ -1,6 +1,7 @@
 package pl.martapiatek.nosepad;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements Runnable{
         btnAddReview.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), AddProductActivity.class);
-                startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
             }
         });
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements Runnable{
         btnReviews.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), SearchMenuActivity.class);
-                startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
             }
         });
 
@@ -51,7 +52,26 @@ public class MainActivity extends AppCompatActivity implements Runnable{
         btnConfig.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), ConfigActivity.class);
-                startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
+            }
+        });
+
+
+        btnContact = (Button) findViewById(R.id.btnContact);
+
+        btnContact.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), ContactActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btnAbout = (Button) findViewById(R.id.btnAbout);
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AboutActivity.class);
+                startActivity(myIntent);
             }
         });
     }
