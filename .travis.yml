@@ -21,6 +21,7 @@
     - android-$EMULATOR_API_LEVEL
     - extra-google-m2repository
     - extra-android-m2repository
+    - tools
 
     - addon-google_apis-google-$ANDROID_API_LEVEL
     - addon-google_apis-google-$EMULATOR_API_LEVEL
